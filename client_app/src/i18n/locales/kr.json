@@ -1,0 +1,186 @@
+{
+  "auth": {
+    "agree": "동의합니다",
+    "createAccount": "계정 생성",
+    "createNewAccount": "새 계정 생성",
+    "email": "이메일",
+    "login": "로그인",
+    "password": "비밀번호",
+    "recover_password": "비밀번호 찾기",
+    "sign_up": "가입하기",
+    "keep_logged_in": "로그인 상태 유지",
+    "termsOfUse": "이용 약관",
+    "reset_password": "비밀번호 재설정"
+  },
+  "404": {
+    "title": "404 error",
+    "text": "이상하다고 느끼시면, 메시지를 보내주세요: ",
+    "back_button": "대시보드로 돌아가기"
+  },
+  "typography": {
+    "primary": "기본 텍스트 스타일",
+    "secondary": "보조 텍스트 스타일"
+  },
+  "dashboard": {
+    "versions": "버전",
+    "setupRemoteConnections": "원격 연결 설정",
+    "currentVisitors": "현재 방문자",
+    "navigationLayout": "네비게이션 레이아웃",
+    "topBarButton": "Top Bar",
+    "sideBarButton": "Side Bar"
+  },
+  "language": {
+    "brazilian_portuguese": "포르투갈어",
+    "english": "영어",
+    "spanish": "스페인어",
+    "simplified_chinese": "중국어 간체",
+    "persian": "페르시아어"
+  },
+  "menu": {
+    "auth": "인증",
+    "buttons": "버튼",
+    "timelines": "타임라인",
+    "dashboard": "대시보드",
+    "billing": "청구",
+    "login": "로그인",
+    "preferences": "계정 설정",
+    "payments": "결제",
+    "settings": "애플리케이션 설정",
+    "pricing-plans": "가격 플랜",
+    "payment-methods": "결제 방법",
+    "signup": "가입",
+    "recover-password": "비밀번호 찾기",
+    "recover-password-email": "비밀번호 찾기 이메일",
+    "404": "404",
+    "faq": "FAQ",
+    "users": "사용자",
+    "projects": "프로젝트",
+    "project-management": "프로젝트 관리",
+    "project-progress": "프로젝트 진행 현황",
+    "worker-management": "작업자 관리",
+    "work-verification": "작업 확인",
+    "data-view": "데이터 보기",
+    "translation": "번역",
+    "proofreading": "감수",
+    "final-review": "최종 리뷰"
+  },
+  "messages": {
+    "all": "모든 메시지 보기",
+    "new": "{name}님의 새 메시지",
+    "mark_as_read": "읽음으로 표시"
+  },
+  "navbar": {
+    "messageUs": "웹 개발 문의:",
+    "repository": "GitHub Repo"
+  },
+  "notifications": {
+    "all": "모든 알림 보기",
+    "less": "알림 줄이기",
+    "mark_as_read": "읽음으로 표시",
+    "sentMessage": "메시지를 보냈습니다",
+    "uploadedZip": "{type}을(를) 포함한 새 Zip 파일을 업로드했습니다",
+    "startedTopic": "새 주제를 시작했습니다"
+  },
+  "user": {
+    "language": "언어 변경",
+    "logout": "로그아웃",
+    "profile": "프로필",
+    "settings": "설정",
+    "billing": "청구",
+    "faq": "FAQ",
+    "글나무faq": "글나무faq",
+    "projects": "프로젝트",
+    "account": "계정",
+    "explore": "문의"
+  },
+  "treeView": {
+    "basic": "기본",
+    "icons": "아이콘",
+    "selectable": "선택 가능",
+    "editable": "편집 가능",
+    "advanced": "고급"
+  },
+  "chat": {
+    "title": "채팅",
+    "sendButton": "보내기"
+  },
+  "spacingPlayground": {
+    "value": "값",
+    "margin": "마진",
+    "padding": "패딩"
+  },
+  "spacing": {
+    "title": "간격"
+  },
+  "cards": {
+    "cards": "카드",
+    "fixed": "고정",
+    "floating": "플로팅",
+    "contentText": "얼룩말의 독특한 줄무늬는 사람들에게 가장 친숙한 동물 중 하나로 만듭니다.",
+    "contentTextLong": "얼룩말의 독특한 줄무늬는 사람들에게 가장 친숙한 동물 중 하나로 만듭니다. 그들은 초원, 사바나, 숲, 가시 덤불, 산, 해안 언덕 등 다양한 서식지에서 발견됩니다. 여러 인간의 요인, 특히 가죽을 위한 사냥과 서식지 파괴가 얼룩말의 개체 수에 심각한 영향을 미쳤습니다. 그레비의 얼룩말과 산얼룩말은 멸종 위기에 처해 있습니다. 평원 얼룩말은 훨씬 더 풍부하지만, 한 종, 콰가는 멸종 위기에 처해 있습니다.",
+    "rowHeight": "행 높이",
+
+    "title": {
+      "default": "기본",
+      "withControls": "컨트롤 포함",
+      "customHeader": "사용자 정의 헤더",
+      "withoutHeader": "헤더 없음",
+      "withImage": "이미지 포함",
+      "withTitleOnImage": "이미지 위의 제목",
+      "withCustomTitleOnImage": "이미지 위의 사용자 정의 제목",
+      "withStripe": "스트라이프 포함",
+      "withBackground": "배경 포함"
+    },
+    "button": {
+      "main": "메인",
+      "cancel": "취소",
+      "showMore": "더 보기",
+      "readMore": "더 읽기"
+    },
+    "link": {
+      "edit": "편집",
+      "setAsDefault": "기본값으로 설정",
+      "delete": "삭제",
+      "traveling": "여행",
+      "france": "프랑스",
+      "review": "리뷰",
+      "feedback": "피드백 남기기",
+      "readFull": "전체 기사 읽기",
+      "secondaryAction": "보조 액션",
+      "action1": "액션 1",
+      "action2": "액션 2"
+    },
+    "colors": {
+      "themeColors": "테마 색상",
+      "extraColors": "추가 색상",
+      "gradients": {
+        "basic": {
+          "title": "버튼 그라디언트"
+        },
+        "hovered": {
+          "title": "호버 버튼 그라디언트",
+          "text": "호버 상태에 원래 스타일(그라디언트 또는 평면 색상)에 밝기 15% 적용."
+        },
+        "pressed": {
+          "title": "눌린 버튼 그라디언트",
+          "text": "눌린 상태에 원래 스타일(그라디언트 또는 평면 색상)에 어둡게 15% 적용."
+        }
+      }
+    },
+    "tabs": {
+      "alignment": "탭 정렬",
+      "overflow": "탭 오버플로우",
+      "hidden": "숨겨진 슬라이더의 탭",
+      "grow": "탭 확장"
+    },
+    "helpAndSupport": "도움말 & 지원",
+    "aboutVuesticAdmin": "Vuestic Admin에 대하여",
+    "search": {
+      "placeholder": "검색..."
+    },
+    "buttonSelect": {
+      "dark": "Dark",
+      "light": "Light"
+    }
+  }
+}
