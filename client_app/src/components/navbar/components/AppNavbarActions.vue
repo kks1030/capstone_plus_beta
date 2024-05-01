@@ -8,7 +8,7 @@
       color="textPrimary"
       class="app-navbar-actions__item flex-shrink-0 mx-0"
     >
-      {{ t('글나무') }}
+      {{ t("글나무") }}
     </VaButton>
     <VaButton
       v-if="!isMobile"
@@ -17,24 +17,43 @@
       color="textPrimary"
       class="app-navbar-actions__item flex-shrink-0 mx-0"
     >
-      {{ t('로그인') }}
+      {{ t("로그인") }}
     </VaButton>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+      <a
+        href="#"
+        @click="showModal = true"
+        class="text-sm font-semibold leading-6 text-black"
+        >로그인 <span aria-hidden="true">&rarr;</span></a
+      >
+    </div>
+    <Teleport to="body">
+      <LoginModalVue :show="showModal" @close="showModal = false">
+        <template #header>
+          <a href="#" class="modal-default-button" @click="showModal = false"
+            >X</a
+          >
+        </template>
+      </LoginModalVue>
+    </Teleport>
 
-    <NotificationDropdown class="app-navbar-actions__item" />
-    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile mr-1" />
+    <ProfileDropdown
+      class="app-navbar-actions__item app-navbar-actions__item--profile mr-1"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import ProfileDropdown from './dropdowns/ProfileDropdown.vue'
-import NotificationDropdown from './dropdowns/NotificationDropdown.vue'
+import ProfileDropdown from "./dropdowns/ProfileDropdown.vue";
+const showModal = ref(false);
 
 defineProps({
   isMobile: { type: Boolean, default: false },
-})
+});
 
-import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import { useI18n } from "vue-i18n";
+import { ref } from "vue";
+const { t } = useI18n();
 </script>
 
 <style lang="scss">

@@ -1,34 +1,36 @@
 <script setup lang="ts">
-import { defineVaDataTableColumns } from 'vuestic-ui'
-import { Project } from '../../../projects/types'
-import ProjectStatusBadge from '../../../projects/components/ProjectStatusBadge.vue'
-import { useProjects } from '../../../projects/composables/useProjects'
-import { Pagination } from '../../../../data/pages/projects'
-import { ref } from 'vue'
+import { defineVaDataTableColumns } from "vuestic-ui";
+import { Project } from "../../../projects/types";
+import ProjectStatusBadge from "../../../projects/components/ProjectStatusBadge.vue";
+import { useProjects } from "../../../projects/composables/useProjects";
+import { Pagination } from "../../../../data/pages/projects";
+import { ref } from "vue";
 
 const columns = defineVaDataTableColumns([
-  { label: 'Name', key: 'project_name', sortable: true },
-  { label: 'Status', key: 'status', sortable: true },
-  { label: 'Team', key: 'team', sortable: true },
-])
+  { label: "프로젝트명", key: "project_name", sortable: true },
+  { label: "상태", key: "status", sortable: true },
+  { label: "이름", key: "name", sortable: true },
+]);
 
-const pagination = ref<Pagination>({ page: 1, perPage: 5, total: 0 })
+const pagination = ref<Pagination>({ page: 1, perPage: 5, total: 0 });
 const { projects, isLoading, sorting } = useProjects({
   pagination,
-})
+});
 
 const avatarColor = (userName: string) => {
-  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
-  const index = userName.charCodeAt(0) % colors.length
-  return colors[index]
-}
+  const colors = ["primary", "#FFD43A", "#ADFF00", "#262824", "danger"];
+  const index = userName.charCodeAt(0) % colors.length;
+  return colors[index];
+};
 </script>
 
 <template>
   <VaCard>
     <VaCardTitle class="flex items-start justify-between">
-      <h1 class="card-title text-secondary font-bold uppercase">Projects</h1>
-      <VaButton preset="primary" size="small" to="/projects">View all projects</VaButton>
+      <h1 class="card-title text-secondary font-bold uppercase">프로젝트</h1>
+      <VaButton preset="primary" size="small" to="/projects/project-management"
+        >전체 프로젝트 보기</VaButton
+      >
     </VaCardTitle>
     <VaCardContent>
       <div v-if="projects.length > 0">
@@ -69,7 +71,12 @@ const avatarColor = (userName: string) => {
           </template>
         </VaDataTable>
       </div>
-      <div v-else class="p-4 flex justify-center items-center text-[var(--va-secondary)]">No projects</div>
+      <div
+        v-else
+        class="p-4 flex justify-center items-center text-[var(--va-secondary)]"
+      >
+        No projects
+      </div>
     </VaCardContent>
   </VaCard>
 </template>

@@ -1,100 +1,100 @@
 export interface INavigationRoute {
-  name: string
-  displayName: string
-  meta: { icon: string }
+  name: string;
+  displayName: string;
+  meta: { icon: string };
   path?: string; // 경로 속성을 추가합니다.
-  children?: INavigationRoute[]
+  children?: INavigationRoute[];
 }
 
 export default {
   root: {
-    name: '/',
-    displayName: 'navigationRoutes.home',
+    name: "/",
+    displayName: "navigationRoutes.home",
   },
   routes: [
     {
-      name: 'dashboard',
-      displayName: 'menu.dashboard',
+      name: "dashboard",
+      displayName: "menu.dashboard",
       meta: {
-        icon: 'vuestic-iconset-dashboard',
+        icon: "vuestic-iconset-dashboard",
       },
     },
     {
-      name: 'users',
-      displayName: 'menu.users',
+      name: "users",
+      displayName: "menu.users",
       meta: {
-        icon: 'group',
+        icon: "group",
       },
     },
     {
-      name: 'project',
-      displayName: 'menu.projects',
+      name: "project",
+      displayName: "menu.projects",
       meta: {
-        icon: 'folder_shared',
+        icon: "folder_shared",
       },
       children: [
         {
-          name: 'project-management',
-          displayName: 'menu.project-management',
+          name: "project-management",
+          displayName: "menu.project-management",
         },
         {
-          name: 'project-progress',
-          displayName: 'menu.project-progress',
+          name: "project-progress",
+          displayName: "menu.project-progress",
         },
       ],
     },
     {
-      name: 'worker-management',
-      displayName: 'menu.worker-management',
+      name: "worker-management",
+      displayName: "menu.worker-management",
       meta: {
-        icon: 'group',
+        icon: "group",
       },
     },
     {
-      name: 'work-verification',
-      displayName: 'menu.work-verification',
+      name: "work-verification",
+      displayName: "menu.work-verification",
       meta: {
-        icon: 'check_circle',
+        icon: "check_circle",
       },
       children: [
         {
-          name: 'data-view',
-          displayName: 'menu.data-view',
+          name: "data-view",
+          displayName: "menu.data-view",
         },
         {
-          name: 'translation',
-          displayName: 'menu.translation',
+          name: "translation",
+          displayName: "menu.translation",
         },
         {
-          name: 'proofreading',
-          displayName: 'menu.proofreading',
+          name: "proofreading",
+          displayName: "menu.proofreading",
         },
         {
-          name: 'final-review',
-          displayName: 'menu.final-review',
+          name: "final-review",
+          displayName: "menu.final-review",
         },
       ],
     },
     {
-      name: 'request',
-      displayName: 'menu.uploader',
+      name: "request",
+      displayName: "menu.uploader",
       meta: {
-        icon: 'upload_file',
+        icon: "upload_file",
       },
     },
 
     {
-      name: 'me',
-      displayName: 'menu.me',
+      name: "me",
+      displayName: "menu.me",
       meta: {
-        icon: 'person',
+        icon: "person",
       },
     },
     {
-      name: 'users1',
-      displayName: 'menu.users1',
+      name: "users1",
+      displayName: "menu.users1",
       meta: {
-        icon: 'group',
+        icon: "group",
       },
     },
     /*({
@@ -104,50 +104,35 @@ export default {
         icon: 'control_camera',
       },
     },*/
-    
 
     {
-      name: 'auth',
-      displayName: 'menu.auth',
+      name: "auth",
+      displayName: "menu.auth",
       meta: {
-        icon: 'login',
+        icon: "login",
       },
       children: [
         {
-          name: 'login',
-          displayName: 'menu.login',
+          name: "login",
+          displayName: "menu.login",
         },
         {
-          name: 'signup',
-          displayName: 'menu.signup',
+          name: "signup",
+          displayName: "menu.signup",
         },
         {
-          name: 'recover-password',
-          displayName: 'menu.recover-password',
+          name: "recover-password",
+          displayName: "menu.recover-password",
         },
       ],
     },
 
     {
-      name: 'faq',
-      displayName: 'menu.faq',
+      name: "preferences",
+      displayName: "menu.preferences",
       meta: {
-        icon: 'quiz',
-      },
-    },
-    {
-      name: 'preferences',
-      displayName: 'menu.preferences',
-      meta: {
-        icon: 'manage_accounts',
-      },
-    },
-    {
-      name: 'settings',
-      displayName: 'menu.settings',
-      meta: {
-        icon: 'settings',
+        icon: "manage_accounts",
       },
     },
   ] as INavigationRoute[],
-}
+};

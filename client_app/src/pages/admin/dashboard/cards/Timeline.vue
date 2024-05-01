@@ -1,40 +1,32 @@
 <script setup lang="ts">
-import VaTimelineItem from '../../../../components/va-timeline-item.vue'
+import VaTimelineItem from "../../../../components/va-timeline-item.vue";
 </script>
 
 <template>
   <VaCard>
     <VaCardTitle class="flex justify-between">
-      <h1 class="card-title text-secondary font-bold uppercase">Timeline</h1>
+      <h1 class="card-title text-secondary font-bold uppercase">회사 연혁</h1>
     </VaCardTitle>
     <VaCardContent>
       <table class="mt-4">
         <tbody>
-          <VaTimelineItem date="25m ago">
-            <RouterLink class="va-link font-semibold" to="/users">Donald</RouterLink> updated the status of
-            <RouterLink class="va-link font-semibold" to="/users">Refund #1234</RouterLink> to awaiting customer
-            response
+          <VaTimelineItem date="2023년 3월">
+            회사 창립자들이 창업 시작
           </VaTimelineItem>
-          <VaTimelineItem date="1h ago">
-            <RouterLink class="va-link font-semibold" to="/users">Lycy Peterson</RouterLink> was added to the group,
-            group name is Overtake
+          <VaTimelineItem date="2023년 6월">
+            첫 대형 프로젝트 계약을 성공적으로 체결
           </VaTimelineItem>
-          <VaTimelineItem date="2h ago">
-            <RouterLink class="va-link font-semibold" to="/users">Joseph Rust</RouterLink> opened new showcase
-            <RouterLink class="va-link font-semibold" to="/users">Mannat #112233</RouterLink> with theme market
+          <VaTimelineItem date="2023년 9월">
+            회사는 번역 서비스를 제공하기 시작
           </VaTimelineItem>
-          <VaTimelineItem date="3d ago">
-            <RouterLink class="va-link font-semibold" to="/users">Donald</RouterLink> updated the status to awaiting
-            customer response
+          <VaTimelineItem date="2023년 12월">
+            첫 해외 프로젝트를 런칭
           </VaTimelineItem>
-          <VaTimelineItem date="Nov 14, 2023">
-            <RouterLink class="va-link font-semibold" to="/users">Lycy Peterson</RouterLink> was added to the group
+          <VaTimelineItem date="2024년 2월">
+            회사 매출 창립 이래 최고치를 기록
           </VaTimelineItem>
-          <VaTimelineItem date="Nov 14, 2023">
-            <RouterLink class="va-link font-semibold" to="/users">Dan Rya</RouterLink> was added to the group
-          </VaTimelineItem>
-          <VaTimelineItem date="Nov 15, 2023">
-            Project <RouterLink class="va-link font-semibold" to="/projects">Vuestic 2023</RouterLink> was created
+          <VaTimelineItem date="2024년 5월">
+            새로운 사업부문을 추가하여 서비스 범위를 확장
           </VaTimelineItem>
         </tbody>
       </table>

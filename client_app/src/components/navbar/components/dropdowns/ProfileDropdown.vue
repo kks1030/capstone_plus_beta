@@ -1,11 +1,16 @@
 <template>
   <div class="profile-dropdown-wrapper">
-    <VaDropdown v-model="isShown" :offset="[9, 0]" class="profile-dropdown" stick-to-edges>
+    <VaDropdown
+      v-model="isShown"
+      :offset="[9, 0]"
+      class="profile-dropdown"
+      stick-to-edges
+    >
       <template #anchor>
         <VaButton preset="secondary" color="textPrimary">
           <span class="profile-dropdown__anchor min-w-max">
             <slot />
-            <VaAvatar :size="32" color="warning"> 😍 </VaAvatar>
+            <VaAvatar :size="32" color="warning"> 👤 </VaAvatar>
           </span>
         </VaButton>
       </template>
@@ -14,7 +19,10 @@
         :style="{ '--hover-color': hoverColor }"
       >
         <VaList v-for="group in options" :key="group.name">
-          <header v-if="group.name" class="uppercase text-[var(--va-secondary)] opacity-80 font-bold text-xs px-4">
+          <header
+            v-if="group.name"
+            class="uppercase text-[var(--va-secondary)] opacity-80 font-bold text-xs px-4"
+          >
             {{ t(`user.${group.name}`) }}
           </header>
           <VaListItem
@@ -34,91 +42,85 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useColors } from 'vuestic-ui'
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { useColors } from "vuestic-ui";
 
-const { colors, setHSLAColor } = useColors()
-const hoverColor = computed(() => setHSLAColor(colors.focus, { a: 0.1 }))
+const { colors, setHSLAColor } = useColors();
+const hoverColor = computed(() => setHSLAColor(colors.focus, { a: 0.1 }));
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 type ProfileListItem = {
-  name: string
-  to?: string
-  href?: string
-  icon: string
-}
+  name: string;
+  to?: string;
+  href?: string;
+  icon: string;
+};
 
 type ProfileOptions = {
-  name: string
-  separator: boolean
-  list: ProfileListItem[]
-}
+  name: string;
+  separator: boolean;
+  list: ProfileListItem[];
+};
 
 withDefaults(
   defineProps<{
-    options?: ProfileOptions[]
+    options?: ProfileOptions[];
   }>(),
   {
     options: () => [
       {
-        name: 'account',
+        name: "account",
         separator: true,
         list: [
           {
-            name: 'profile',
-            to: 'preferences',
-            icon: 'mso-account_circle',
+            name: "profile",
+            to: "preferences",
+            icon: "mso-account_circle",
           },
           {
-            name: 'settings',
-            to: 'settings',
-            icon: 'mso-settings',
-          },
-          {
-            name: 'projects',
-            to: 'project-management',
-            icon: 'mso-favorite',
+            name: "projects",
+            to: "project-management",
+            icon: "mso-favorite",
           },
         ],
       },
       {
-        name: 'explore',
+        name: "explore",
         separator: true,
         list: [
           {
-            name: 'faq',
-            to: 'faq',
-            icon: 'mso-quiz',
-          },
-          {
-            name: '글나무faq',
-            href: 'https://www.voctree.co.kr/bbs/faq.php',
-            icon: 'mso-error',
+            name: "글나무faq",
+            href: "https://www.voctree.co.kr/bbs/faq.php",
+            icon: "mso-error",
           },
         ],
       },
       {
-        name: '',
+        name: "",
         separator: false,
         list: [
           {
-            name: 'logout',
-            to: 'login',
-            icon: 'mso-logout',
+            name: "logout",
+            to: "login",
+            icon: "mso-logout",
           },
         ],
       },
     ],
-  },
-)
+  }
+);
 
-const isShown = ref(false)
+const isShown = ref(false);
 
 const resolveLinkAttribute = (item: ProfileListItem) => {
-  return item.to ? { to: { name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}
-}
+  return item.to
+    ? { to: { name: item.to } }
+    : item.href
+    ? { href: item.href, target: "_blank" }
+    : {};
+};
 </script>
 
 <style lang="scss">

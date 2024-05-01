@@ -1,99 +1,107 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useLocalStorage } from '@vueuse/core'
-import { useProjects } from './composables/useProjects'
-import ProjectCards from './widgets/ProjectCards.vue'
-import ProjectTable from './widgets/ProjectsTable.vue'
-import EditProjectForm from './widgets/EditProjectForm.vue'
-import { Project } from './types'
-import { VaDateInput, useModal, useToast } from 'vuestic-ui'
+import { ref, watch } from "vue";
+import { useLocalStorage } from "@vueuse/core";
+import { useProjects } from "./composables/useProjects";
+import ProjectTable from "./widgets/ProjectsTable.vue";
+import EditProjectForm from "./widgets/EditProjectForm.vue";
+import { Project } from "./types";
+import { VaDateInput, useModal, useToast } from "vuestic-ui";
 
-const doShowAsCards = useLocalStorage('projects-view', true)
+const {
+  projects,
+  update,
+  add,
+  isLoading,
+  remove,
+  pagination,
+  sorting,
+  searchQuery,
+  startDate,
+  endDate,
+} = useProjects();
 
-const { projects, update, add, isLoading, remove, pagination, sorting, searchQuery, startDate, endDate } = useProjects()
-
-const projectToEdit = ref<Project | null>(null)
-const doShowProjectFormModal = ref(false)
+const projectToEdit = ref<Project | null>(null);
+const doShowProjectFormModal = ref(false);
 
 const editProject = (project: Project) => {
-  projectToEdit.value = project
-  doShowProjectFormModal.value = true
-}
+  projectToEdit.value = project;
+  doShowProjectFormModal.value = true;
+};
 
 const createNewProject = () => {
-  projectToEdit.value = null
-  doShowProjectFormModal.value = true
-}
+  projectToEdit.value = null;
+  doShowProjectFormModal.value = true;
+};
 
-const { init: notify } = useToast()
+const { init: notify } = useToast();
 
 const onProjectSaved = async (project: Project) => {
-  doShowProjectFormModal.value = false
-  if ('id' in project) {
-    await update(project as Project)
+  doShowProjectFormModal.value = false;
+  if ("id" in project) {
+    await update(project as Project);
     notify({
-      message: 'Project updated',
-      color: 'success',
-    })
+      message: "Project updated",
+      color: "success",
+    });
   } else {
-    await add(project as Project)
+    await add(project as Project);
     notify({
-      message: 'Project created',
-      color: 'success',
-    })
+      message: "Project created",
+      color: "success",
+    });
   }
-}
+};
 
-const { confirm } = useModal()
+const { confirm } = useModal();
 
 const onProjectDeleted = async (project: Project) => {
   const response = await confirm({
-    title: 'Delete project',
+    title: "Delete project",
     message: `Are you sure you want to delete project "${project.project_name}"?`,
-    okText: 'Delete',
-    size: 'small',
-    maxWidth: '380px',
-  })
+    okText: "Delete",
+    size: "small",
+    maxWidth: "380px",
+  });
 
   if (!response) {
-    return
+    return;
   }
 
-  await remove(project)
+  await remove(project);
   notify({
-    message: 'Project deleted',
-    color: 'success',
-  })
-}
+    message: "Project deleted",
+    color: "success",
+  });
+};
 
-const editFormRef = ref()
+const editFormRef = ref();
 
 const beforeEditFormModalClose = async (hide: () => unknown) => {
   if (editFormRef.value.isFormHasUnsavedChanges) {
     const agreed = await confirm({
-      maxWidth: '380px',
-      message: 'Form has unsaved changes. Are you sure you want to close it?',
-      size: 'small',
-    })
+      maxWidth: "380px",
+      message: "Form has unsaved changes. Are you sure you want to close it?",
+      size: "small",
+    });
     if (agreed) {
-      hide()
+      hide();
     }
   } else {
-    hide()
+    hide();
   }
-}
+};
 
 watch(
   [startDate, endDate],
   () => {
     if (startDate.value && endDate.value && startDate.value > endDate.value) {
-      const temp = startDate.value
-      startDate.value = endDate.value
-      endDate.value = temp
+      const temp = startDate.value;
+      startDate.value = endDate.value;
+      endDate.value = temp;
     }
   },
-  { deep: true },
-)
+  { deep: true }
+);
 </script>
 
 <template>
@@ -103,17 +111,11 @@ watch(
     <VaCardContent>
       <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
         <div class="flex flex-col md:flex-row gap-2 justify-start">
-          <VaButtonToggle
-            v-model="doShowAsCards"
-            color="background-element"
-            border-color="background-element"
-            :options="[
-              { label: 'Cards', value: true },
-              { label: 'Table', value: false },
-            ]"
-          />
           <!-- Add search input and date pickers -->
-          <VaInput v-model="searchQuery" placeholder="프로젝트명을 입력해 주세요" />
+          <VaInput
+            v-model="searchQuery"
+            placeholder="프로젝트명을 입력해 주세요"
+          />
           <VaDateInput v-model="startDate" placeholder="Start date" clearable />
           <VaDateInput v-model="endDate" placeholder="End date" clearable />
         </div>
@@ -121,15 +123,7 @@ watch(
         <VaButton icon="add" @click="createNewProject">Project</VaButton>
       </div>
 
-      <ProjectCards
-        v-if="doShowAsCards"
-        :projects="projects"
-        :loading="isLoading"
-        @edit="editProject"
-        @delete="onProjectDeleted"
-      />
       <ProjectTable
-        v-else
         v-model:sort-by="sorting.sortBy"
         v-model:sorting-order="sorting.sortingOrder"
         v-model:pagination="pagination"
@@ -159,8 +153,8 @@ watch(
         @close="cancel"
         @save="
           (project) => {
-            onProjectSaved(project)
-            ok()
+            onProjectSaved(project);
+            ok();
           }
         "
       />

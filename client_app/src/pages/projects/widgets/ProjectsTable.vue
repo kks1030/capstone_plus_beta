@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
-import { defineVaDataTableColumns } from 'vuestic-ui'
-import { Project } from '../types'
+import { PropType, computed } from "vue";
+import { defineVaDataTableColumns } from "vuestic-ui";
+import { Project } from "../types";
 //import UserAvatar from '../../users/widgets/UserAvatar.vue'
-import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
-import { Pagination, Sorting } from '../../../data/pages/projects'
-import { useVModel } from '@vueuse/core'
+import ProjectStatusBadge from "../components/ProjectStatusBadge.vue";
+import { Pagination, Sorting } from "../../../data/pages/projects";
+import { useVModel } from "@vueuse/core";
 
 const columns = defineVaDataTableColumns([
-  { label: '번호', key: 'index', sortable: false },
-  { label: '프로젝트명', key: 'project_name', sortable: true },
+  { label: "번호", key: "index", sortable: false },
+  { label: "프로젝트명", key: "project_name", sortable: true },
   //{ label: 'Project owner', key: 'project_owner', sortable: true },
-  { label: '유형', key: 'team', sortable: true },
-  { label: '상태', key: 'status', sortable: true },
-  { label: '생성 일시', key: 'creation_date', sortable: true },
-  { label: ' ', key: 'actions' },
-])
+  { label: "유형", key: "team", sortable: true },
+  { label: "상태", key: "status", sortable: true },
+  { label: "생성 일시", key: "creation_date", sortable: true },
+  { label: " ", key: "actions" },
+]);
 
 const props = defineProps({
   projects: {
@@ -27,34 +27,36 @@ const props = defineProps({
     required: true,
   },
   sortBy: {
-    type: Object as PropType<Sorting['sortBy']>,
+    type: Object as PropType<Sorting["sortBy"]>,
     required: true,
   },
   sortingOrder: {
-    type: Object as PropType<Sorting['sortingOrder']>,
+    type: Object as PropType<Sorting["sortingOrder"]>,
     required: true,
   },
   pagination: {
     type: Object as PropType<Pagination>,
     required: true,
   },
-})
+});
 
 const emit = defineEmits<{
-  (event: 'edit', project: Project): void
-  (event: 'delete', project: Project): void
-}>()
+  (event: "edit", project: Project): void;
+  (event: "delete", project: Project): void;
+}>();
 
 const avatarColor = (userName: string) => {
-  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
-  const index = userName.charCodeAt(0) % colors.length
-  return colors[index]
-}
+  const colors = ["primary", "#FFD43A", "#ADFF00", "#262824", "danger"];
+  const index = userName.charCodeAt(0) % colors.length;
+  return colors[index];
+};
 
-const sortByVModel = useVModel(props, 'sortBy', emit)
-const sortingOrderVModel = useVModel(props, 'sortingOrder', emit)
+const sortByVModel = useVModel(props, "sortBy", emit);
+const sortingOrderVModel = useVModel(props, "sortingOrder", emit);
 
-const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
+const totalPages = computed(() =>
+  Math.ceil(props.pagination.total / props.pagination.perPage)
+);
 </script>
 
 <template>
@@ -67,7 +69,11 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
       :loading="loading"
     >
       <template #cell(index)="{ rowIndex }">
-        {{ $props.pagination.perPage * ($props.pagination.page - 1) + rowIndex + 1 }}
+        {{
+          $props.pagination.perPage * ($props.pagination.page - 1) +
+          rowIndex +
+          1
+        }}
       </template>
       <template #cell(project_name)="{ rowData }">
         <div class="ellipsis max-w-[230px] lg:max-w-[450px]">
@@ -81,7 +87,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
         </div>
       </template-->
       <template #cell(team)="{ rowData: project }">
-        <VaAvatarGroup
+        <!--VaAvatarGroup
           size="small"
           :options="
             (project as Project).team.map((user) => ({
@@ -92,7 +98,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
             }))
           "
           :max="5"
-        />
+        /-->
       </template>
       <template #cell(status)="{ rowData: project }">
         <ProjectStatusBadge :status="project.status" />
@@ -119,11 +125,17 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
         </div>
       </template>
     </VaDataTable>
-    <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">
+    <div
+      class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2"
+    >
       <div>
         <b>{{ $props.pagination.total }} results.</b>
         Results per page
-        <VaSelect v-model="$props.pagination.perPage" class="!w-20" :options="[10, 50, 100]" />
+        <VaSelect
+          v-model="$props.pagination.perPage"
+          class="!w-20"
+          :options="[10, 50, 100]"
+        />
       </div>
 
       <div v-if="totalPages > 1" class="flex">

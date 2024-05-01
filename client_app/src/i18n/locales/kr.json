@@ -62,7 +62,10 @@
     "data-view": "데이터 보기",
     "translation": "번역",
     "proofreading": "감수",
-    "final-review": "최종 리뷰"
+    "final-review": "최종 리뷰",
+    "users1": "계정관리",
+    "me": "me확인",
+    "uploader": "파일올리기"
   },
   "messages": {
     "all": "모든 메시지 보기",
