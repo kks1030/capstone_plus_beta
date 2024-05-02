@@ -56,8 +56,8 @@ const { confirm } = useModal();
 
 const onProjectDeleted = async (project: Project) => {
   const response = await confirm({
-    title: "Delete project",
-    message: `Are you sure you want to delete project "${project.project_name}"?`,
+    title: "프로젝트 제거",
+    message: `프로젝트를 (${project.project_name}) 제거하려는 것이 맞습니까??`,
     okText: "Delete",
     size: "small",
     maxWidth: "380px",
@@ -80,7 +80,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
   if (editFormRef.value.isFormHasUnsavedChanges) {
     const agreed = await confirm({
       maxWidth: "380px",
-      message: "Form has unsaved changes. Are you sure you want to close it?",
+      message: "아직 저장되지 않았습니다. 그래도 창을 끄시겠습니까?",
       size: "small",
     });
     if (agreed) {
@@ -116,8 +116,8 @@ watch(
             v-model="searchQuery"
             placeholder="프로젝트명을 입력해 주세요"
           />
-          <VaDateInput v-model="startDate" placeholder="Start date" clearable />
-          <VaDateInput v-model="endDate" placeholder="End date" clearable />
+          <VaDateInput v-model="startDate" placeholder="시작일" clearable />
+          <VaDateInput v-model="endDate" placeholder="종료일" clearable />
         </div>
         <!--VaButton @click="searchProjects" size="small"> <VaIcon name="manage_search" size="medium" /> </VaButton-->
         <VaButton icon="add" @click="createNewProject">Project</VaButton>
