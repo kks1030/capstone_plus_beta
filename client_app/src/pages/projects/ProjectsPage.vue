@@ -40,13 +40,13 @@ const onProjectSaved = async (project: Project) => {
   if ("id" in project) {
     await update(project as Project);
     notify({
-      message: "Project updated",
+      message: "프로젝트 수정",
       color: "success",
     });
   } else {
     await add(project as Project);
     notify({
-      message: "Project created",
+      message: "프로젝트 추가",
       color: "success",
     });
   }
@@ -105,59 +105,61 @@ watch(
 </script>
 
 <template>
-  <h1 class="page-title">Projects</h1>
+  <div>
+    <h1 class="page-title">Projects</h1>
 
-  <VaCard>
-    <VaCardContent>
-      <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
-        <div class="flex flex-col md:flex-row gap-2 justify-start">
-          <!-- Add search input and date pickers -->
-          <VaInput
-            v-model="searchQuery"
-            placeholder="프로젝트명을 입력해 주세요"
-          />
-          <VaDateInput v-model="startDate" placeholder="시작일" clearable />
-          <VaDateInput v-model="endDate" placeholder="종료일" clearable />
+    <VaCard>
+      <VaCardContent>
+        <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
+          <div class="flex flex-col md:flex-row gap-2 justify-start">
+            <!-- Add search input and date pickers -->
+            <VaInput
+              v-model="searchQuery"
+              placeholder="프로젝트명을 입력해 주세요"
+            />
+            <VaDateInput v-model="startDate" placeholder="시작일" clearable />
+            <VaDateInput v-model="endDate" placeholder="종료일" clearable />
+          </div>
+          <!--VaButton @click="searchProjects" size="small"> <VaIcon name="manage_search" size="medium" /> </VaButton-->
+          <VaButton icon="add" @click="createNewProject">Project</VaButton>
         </div>
-        <!--VaButton @click="searchProjects" size="small"> <VaIcon name="manage_search" size="medium" /> </VaButton-->
-        <VaButton icon="add" @click="createNewProject">Project</VaButton>
-      </div>
 
-      <ProjectTable
-        v-model:sort-by="sorting.sortBy"
-        v-model:sorting-order="sorting.sortingOrder"
-        v-model:pagination="pagination"
-        :projects="projects"
-        :loading="isLoading"
-        @edit="editProject"
-        @delete="onProjectDeleted"
-      />
-    </VaCardContent>
+        <ProjectTable
+          v-model:sort-by="sorting.sortBy"
+          v-model:sorting-order="sorting.sortingOrder"
+          v-model:pagination="pagination"
+          :projects="projects"
+          :loading="isLoading"
+          @edit="editProject"
+          @delete="onProjectDeleted"
+        />
+      </VaCardContent>
 
-    <VaModal
-      v-slot="{ cancel, ok }"
-      v-model="doShowProjectFormModal"
-      size="small"
-      mobile-fullscreen
-      close-button
-      stateful
-      hide-default-actions
-      :before-cancel="beforeEditFormModalClose"
-    >
-      <h1 v-if="projectToEdit === null" class="va-h5 mb-4">Add project</h1>
-      <h1 v-else class="va-h5 mb-4">Edit project</h1>
-      <EditProjectForm
-        ref="editFormRef"
-        :project="projectToEdit"
-        :save-button-label="projectToEdit === null ? 'Add' : 'Save'"
-        @close="cancel"
-        @save="
-          (project) => {
-            onProjectSaved(project);
-            ok();
-          }
-        "
-      />
-    </VaModal>
-  </VaCard>
+      <VaModal
+        v-slot="{ cancel, ok }"
+        v-model="doShowProjectFormModal"
+        size="small"
+        mobile-fullscreen
+        close-button
+        stateful
+        hide-default-actions
+        :before-cancel="beforeEditFormModalClose"
+      >
+        <h1 v-if="projectToEdit === null" class="va-h5 mb-4">Add project</h1>
+        <h1 v-else class="va-h5 mb-4">Edit project</h1>
+        <EditProjectForm
+          ref="editFormRef"
+          :project="projectToEdit"
+          :save-button-label="projectToEdit === null ? 'Add' : 'Save'"
+          @close="cancel"
+          @save="
+            (project) => {
+              onProjectSaved(project);
+              ok();
+            }
+          "
+        />
+      </VaModal>
+    </VaCard>
+  </div>
 </template>
