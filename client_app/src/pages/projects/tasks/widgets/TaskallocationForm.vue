@@ -78,8 +78,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import router from "../../router";
-import User from "../../components/users/User.vue";
+import router from "../../../../router";
 
 const submit = () => {
   router.push({ name: "pricing-plans" });
@@ -89,7 +88,7 @@ const form = ref({
   additionalCount: "",
   originalLanguage: "",
   targetLanguage: "",
-  worker: User,
+  worker: "",
   workType: "",
   unitPrice: "",
   startDate: null as Date | null,

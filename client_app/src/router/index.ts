@@ -44,7 +44,7 @@ const routes: Array<RouteRecordRaw> = [
           {
             name: "project-progress",
             path: "project-progress",
-            component: () => import("../pages/projects/Projectstasklist.vue"),
+            component: () => import("../pages/projects/tasks/TaskPage.vue"),
           },
           {
             name: "taskallocation",

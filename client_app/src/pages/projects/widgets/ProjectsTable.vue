@@ -2,7 +2,6 @@
 import { PropType, computed } from "vue";
 import { defineVaDataTableColumns } from "vuestic-ui";
 import { Project } from "../types";
-//import UserAvatar from '../../users/widgets/UserAvatar.vue'
 import ProjectStatusBadge from "../components/ProjectStatusBadge.vue";
 import { Pagination, Sorting } from "../../../data/pages/projects";
 import { useVModel } from "@vueuse/core";
@@ -10,7 +9,6 @@ import { useVModel } from "@vueuse/core";
 const columns = defineVaDataTableColumns([
   { label: "번호", key: "index", sortable: false },
   { label: "프로젝트명", key: "project_name", sortable: true },
-  //{ label: 'Project owner', key: 'project_owner', sortable: true },
   { label: "유형", key: "team", sortable: true },
   { label: "상태", key: "status", sortable: true },
   { label: "생성 일시", key: "creation_date", sortable: true },

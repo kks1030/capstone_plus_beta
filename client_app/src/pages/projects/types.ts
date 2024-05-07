@@ -26,3 +26,21 @@ export type EmptyProject = Omit<
   targetLanguage: string; // 목표 언어
   targetWorkload: number; // 목표 작업량
 };
+
+export type Task = {
+  id: number;
+  worker: User;
+  type: string;
+  sourceLanguage: string;
+  targetLanguage: string;
+  status: string;
+  progress: string;
+  price: string;
+  startDate: string;
+  endDate: string;
+};
+
+export type EmptyTask = Omit<Task, "id" | "status" | "worker"> & {
+  status: Task["status"] | undefined;
+  worker: Task["worker"] | undefined;
+};
