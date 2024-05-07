@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "worker": 101,
+    "worker": 1,
     "type": "MT",
     "sourceLanguage": "한국어",
     "targetLanguage": "영어",
@@ -13,7 +13,7 @@
   },
   {
     "id": 2,
-    "worker": 102,
+    "worker": 2,
     "type": "PE",
     "sourceLanguage": "영어",
     "targetLanguage": "한국어",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "worker": 103,
+    "worker": 3,
     "type": "MT",
     "sourceLanguage": "한국어",
     "targetLanguage": "일본어",

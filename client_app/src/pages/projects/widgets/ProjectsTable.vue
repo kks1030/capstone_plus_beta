@@ -43,12 +43,6 @@ const emit = defineEmits<{
   (event: "delete", project: Project): void;
 }>();
 
-const avatarColor = (userName: string) => {
-  const colors = ["primary", "#FFD43A", "#ADFF00", "#262824", "danger"];
-  const index = userName.charCodeAt(0) % colors.length;
-  return colors[index];
-};
-
 const sortByVModel = useVModel(props, "sortBy", emit);
 const sortingOrderVModel = useVModel(props, "sortingOrder", emit);
 
@@ -84,20 +78,7 @@ const totalPages = computed(() =>
           {{ rowData.project_owner.fullname }}
         </div>
       </template-->
-      <template #cell(team)="{ rowData: project }">
-        <!--VaAvatarGroup
-          size="small"
-          :options="
-            (project as Project).team.map((user) => ({
-              label: user.fullname,
-              src: user.avatar,
-              fallbackText: user.fullname[0],
-              color: avatarColor(user.fullname),
-            }))
-          "
-          :max="5"
-        /-->
-      </template>
+      <template #cell(team)="{ rowData: project }"> </template>
       <template #cell(status)="{ rowData: project }">
         <ProjectStatusBadge :status="project.status" />
       </template>

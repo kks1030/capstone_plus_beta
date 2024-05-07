@@ -15,7 +15,7 @@ const {
   remove,
   pagination,
   sorting,
-  searchKeyword,
+  searchQuery,
 } = useTasks();
 
 const taskToEdit = ref<Task | null>(null);
@@ -103,7 +103,7 @@ const beforeTaskFormModalClose = async (hide: () => unknown) => {
         <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
           <div class="flex flex-col md:flex-row gap-2 justify-start">
             <VaInput
-              v-model="searchKeyword"
+              v-model="searchQuery"
               placeholder="검색어를 입력해주세요."
             />
           </div>
@@ -114,7 +114,7 @@ const beforeTaskFormModalClose = async (hide: () => unknown) => {
           v-model:sort-by="sorting.sortBy"
           v-model:sorting-order="sorting.sortingOrder"
           v-model:pagination="pagination"
-          :Tasks="tasks"
+          :tasks="tasks"
           :loading="isLoading"
           @edit="editTask"
           @delete="onTaskDeleted"
@@ -131,16 +131,16 @@ const beforeTaskFormModalClose = async (hide: () => unknown) => {
         hide-default-actions
         :before-cancel="beforeTaskFormModalClose"
       >
-        <h1 v-if="TaskToEdit === null" class="va-h5 mb-4">공지사항 추가</h1>
-        <h1 v-else class="va-h5 mb-4">공지사항 수정</h1>
+        <h1 v-if="taskToEdit === null" class="va-h5 mb-4">작업 추가</h1>
+        <h1 v-else class="va-h5 mb-4">작업 수정</h1>
         <EditTaskForm
           ref="editFormRef"
-          :Task="TaskToEdit"
-          :save-button-label="TaskToEdit === null ? '추가' : '저장'"
+          :task="taskToEdit"
+          :save-button-label="taskToEdit === null ? '추가' : '저장'"
           @close="cancel"
           @save="
-            (Task) => {
-              onTaskSaved(Task);
+            (task) => {
+              onTaskSaved(task);
               ok();
             }
           "
