@@ -5,7 +5,7 @@ export type Project = {
   project_name: string;
   project_owner: Omit<User, "projects">;
   team: Omit<User, "projects">[];
-  status: "important" | "completed" | "archived" | "in progress";
+  status: "진행중" | "완료" | "중단" | "취소";
   creation_date: string;
   taskType: "MT" | "PE"; // 작업 유형
   estimate: number; // 견적가
@@ -33,7 +33,7 @@ export type Task = {
   type: string;
   sourceLanguage: string;
   targetLanguage: string;
-  status: string;
+  status: "진행중" | "완료" | "중단" | "취소";
   progress: string;
   price: string;
   startDate: string;

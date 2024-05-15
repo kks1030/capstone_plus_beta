@@ -4,7 +4,7 @@
     "project_name": "웹사이트 번역",
     "project_owner": 13,
     "team": [13, 5, 28, 14, 17, 28, 23, 11, 16, 19, 12, 28, 11],
-    "status": "in progress",
+    "status": "진행중",
     "creation_date": "2023년 11월 20일"
   },
   {
@@ -12,7 +12,7 @@
     "project_name": "무드 보드",
     "project_owner": 28,
     "team": [28, 10, 12, 28, 14, 27, 5, 4, 8, 23, 19, 18, 24, 11, 18, 12, 28],
-    "status": "important",
+    "status": "완료",
     "creation_date": "2023년 10월 16일"
   },
   {
@@ -20,7 +20,7 @@
     "project_name": "젠킨스사 번역",
     "project_owner": 3,
     "team": [3, 21, 7, 19, 4, 4, 7, 24],
-    "status": "important",
+    "status": "진행중",
     "creation_date": "2023년 10월 1일"
   },
   {
@@ -28,7 +28,7 @@
     "project_name": "스프링필드 미디어",
     "project_owner": 17,
     "team": [17, 25, 21, 9, 18, 12, 15, 0, 7, 2, 7],
-    "status": "important",
+    "status": "중단",
     "creation_date": "2023년 9월 19일"
   },
   {
@@ -36,7 +36,7 @@
     "project_name": "갈릴레오",
     "project_owner": 7,
     "team": [7, 1, 28, 19, 3],
-    "status": "completed",
+    "status": "진행중",
     "creation_date": "2023년 9월 23일"
   },
   {
@@ -44,7 +44,7 @@
     "project_name": "웹사이트 리디자인",
     "project_owner": 24,
     "team": [24, 19, 1, 8, 9],
-    "status": "completed",
+    "status": "완료",
     "creation_date": "2023년 9월 9일"
   },
   {
@@ -52,7 +52,7 @@
     "project_name": "툴셋 랜딩",
     "project_owner": 15,
     "team": [15, 16, 8, 6, 11, 21, 3, 20],
-    "status": "archived",
+    "status": "진행중",
     "creation_date": "2023년 8월 17일"
   },
   {
@@ -60,7 +60,7 @@
     "project_name": "완성된 제품 리디자인",
     "project_owner": 25,
     "team": [25, 18, 24, 13, 5, 3, 4, 16, 25, 12, 18, 9, 22],
-    "status": "completed",
+    "status": "취소",
     "creation_date": "2023년 8월 11일"
   },
   {
@@ -68,7 +68,7 @@
     "project_name": "디자인 팀 프로젝트",
     "project_owner": 17,
     "team": [17, 6, 21, 17, 7, 6, 14, 13, 27, 7, 20],
-    "status": "archived",
+    "status": "취소",
     "creation_date": "2023년 8월 9일"
   },
   {
@@ -76,7 +76,7 @@
     "project_name": "정기 물류",
     "project_owner": 3,
     "team": [3, 26, 8, 15, 21, 23, 18, 11, 22, 6, 20, 9],
-    "status": "archived",
+    "status": "진행중",
     "creation_date": "2023년 8월 2일"
   },
   {
@@ -84,7 +84,7 @@
     "project_name": "오로라 애널리틱스",
     "project_owner": 12,
     "team": [12, 7, 18, 24, 13, 5],
-    "status": "in progress",
+    "status": "완료",
     "creation_date": "2023년 12월 10일"
   },
   {
@@ -92,7 +92,7 @@
     "project_name": "퀀텀 리프",
     "project_owner": 14,
     "team": [14, 17, 3, 21, 11, 20],
-    "status": "planning",
+    "status": "중단",
     "creation_date": "2023년 11월 22일"
   },
   {
@@ -100,7 +100,7 @@
     "project_name": "딥 다이브 연구",
     "project_owner": 8,
     "team": [8, 15, 9, 3, 27, 6],
-    "status": "important",
+    "status": "취소",
     "creation_date": "2023년 11월 15일"
   },
   {
@@ -108,7 +108,7 @@
     "project_name": "하이 스카이 아키텍처",
     "project_owner": 21,
     "team": [21, 2, 17, 18, 4],
-    "status": "completed",
+    "status": "중단",
     "creation_date": "2023년 11월 1일"
   },
   {
@@ -116,7 +116,7 @@
     "project_name": "테크 호라이즌",
     "project_owner": 9,
     "team": [9, 19, 24, 1, 22],
-    "status": "in progress",
+    "status": "완료",
     "creation_date": "2023년 10월 28일"
   },
   {
@@ -124,7 +124,7 @@
     "project_name": "이노베이션의 가장자리",
     "project_owner": 16,
     "team": [16, 11, 5, 14, 23],
-    "status": "planning",
+    "status": "진행중",
     "creation_date": "2023년 10월 21일"
   },
   {
@@ -132,7 +132,7 @@
     "project_name": "크립토 벤처스",
     "project_owner": 20,
     "team": [20, 7, 15, 26, 12],
-    "status": "important",
+    "status": "취소",
     "creation_date": "2023년 10월 10일"
   },
   {
@@ -140,7 +140,7 @@
     "project_name": "블록체인 베이직스",
     "project_owner": 4,
     "team": [4, 8, 3, 22, 27],
-    "status": "archived",
+    "status": "완료",
     "creation_date": "2023년 10월 5일"
   },
   {
@@ -148,7 +148,7 @@
     "project_name": "가상 현실 탐험",
     "project_owner": 26,
     "team": [26, 2, 14, 20, 9],
-    "status": "in progress",
+    "status": "완료",
     "creation_date": "2023년 9월 29일"
   },
   {
@@ -156,7 +156,7 @@
     "project_name": "일상생활 속 AI",
     "project_owner": 2,
     "team": [2, 13, 24, 5, 11],
-    "status": "completed",
+    "status": "진행중",
     "creation_date": "2023년 9월 22일"
   }
 ]

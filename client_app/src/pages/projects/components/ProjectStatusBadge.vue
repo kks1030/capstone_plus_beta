@@ -10,10 +10,10 @@ defineProps({
 })
 
 const badgeColorMap: Record<Project['status'], string> = {
-  'in progress': 'primary',
-  archived: 'secondary',
-  completed: 'success',
-  important: 'warning',
+  '진행중': 'primary',
+  '완료': 'success',
+  '중단': 'secondary',
+  '취소': 'warning',
 }
 </script>
 

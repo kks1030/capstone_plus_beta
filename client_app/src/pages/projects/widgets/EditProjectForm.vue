@@ -119,10 +119,10 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({
       track-by="value"
       value-by="value"
       :options="[
-        { text: '진행중', value: 'in progress' },
-        { text: '취소', value: 'archived' },
-        { text: '완료', value: 'completed' },
-        { text: '중요', value: 'important' },
+        { text: '진행중', value: '진행중' },
+        { text: '완료', value: '완료' },
+        { text: '중단', value: '중단' },
+        { text: '취소', value: '취소' },
       ]"
     >
       <template #content="{ value }">

@@ -10,23 +10,16 @@
     >
       {{ t("글나무") }}
     </VaButton>
-    <VaButton
+
+      <VaButton
       v-if="!isMobile"
-      preset="secondary"
-      :to="{ name: 'login' }"
-      color="textPrimary"
-      class="app-navbar-actions__item flex-shrink-0 mx-0"
-    >
-      {{ t("로그인") }}
-    </VaButton>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a
-        href="#"
+        preset="secondary"
+        color="textPrimary"
+        class="app-navbar-actions__item flex-shrink-0"
         @click="showModal = true"
-        class="text-sm font-semibold leading-6 text-black"
-        >로그인 <span aria-hidden="true">&rarr;</span></a
       >
-    </div>
+        로그인 <span aria-hidden="true">&rarr;</span>
+      </VaButton>
     <Teleport to="body">
       <LoginModalVue :show="showModal" @close="showModal = false">
         <template #header>
